@@ -1,0 +1,23 @@
+<a [routerLink]="['../add-user']" class="btn btn-primary">Add User</a>
+<hr>
+<h2>User List</h2>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>State</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users">
+    <td><a [routerLink]="['../edit-user', user.id]">{{user.firstName}} {{user.lastName}}</a></td>
+    <td>{{user.email}}</td>
+    <td>{{user.address.state}}</td>
+    <td>
+      <p (click)="deleteUser(user.id)" class="delete">Delete</p>
+    </td>
+  </tr>
+  </tbody>
+</table>
